@@ -1,0 +1,39 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="hibernateExample">
+
+        <!--El elemento class es inecesario ya uqe los contenedores escanean las clases-->
+        <class>com.hibernate.example.demohibernate.model.Futbolistas</class>
+        <class>com.hibernate.example.demohibernate.model.Usuario</class>
+        
+
+        <properties>
+            <!-- PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:h2:mem:smartGym"/>
+
+            <!-- Credentials -->
+            <property name="jakarta.persistence.jdbc.user"
+                      value="sa"/>
+            <property name="jakarta.persistence.jdbc.password"
+                      value="sa"/>
+
+            <!-- Automatic schema export -->
+            <property name="jakarta.persistence.schema-generation.database.action"
+                      value="drop-and-create"/>
+
+            <!--Performance-->
+            <property name="hibernate.connection.pool_size" value="20"/>
+
+            <!-- SQL statement logging -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.highlight_sql" value="true"/>
+
+        </properties>
+
+    </persistence-unit>
+</persistence>
